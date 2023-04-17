@@ -480,7 +480,7 @@ int main(int argc, char** argv)
 	  acq.resize(nsamp, nchan);
 	  std::complex<float>* dptr = acq.getDataPtr();
 
-	  polar_phase = M_PI * (static_cast<float>(l.new_.random_phase) / 32767.0) - 0.5*l.new_.measurement_phase;
+	  polar_phase = M_PI * (static_cast<float>(l.new_.random_phase) / 32767.5) - M_PI* 0.5*l.new_.measurement_phase;
 	  std::complex<float> correction_factor = std::polar<float>(polar_magnitude, polar_phase);
 
 	  //chop correction, TODO: fix for 3D and add switch for disabling to parameters
@@ -538,7 +538,7 @@ int main(int argc, char** argv)
 	  acq.resize(nsamp, nchan);
 	  std::complex<float>* dptr = acq.getDataPtr();
 
-	  polar_phase = M_PI * (static_cast<float>(-1.0*l.old_.random_phase) / 32767.0) - 0.5*l.old_.measurement_phase;
+	  polar_phase = M_PI * (static_cast<float>(-1.0*l.old_.random_phase) / 32767.5) - M_PI* 0.5*l.old_.measurement_phase;
 	  std::complex<float> correction_factor = std::polar<float>(polar_magnitude, polar_phase);
 
 	  //chop correction, TODO: fix for 3D and add switch for disabling to parameters
